@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بيت الدهانات | دهانات داخلية وخارجية ومقارنة ألوان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F3EEE4;
+    --cream-deep: #EAE2D2;
+    --ink: #372F27;
+    --ink-soft: #6B6154;
+    --green: #1F4A3C;
+    --green-deep: #163529;
+    --rust: #B3673E;
+    --rust-deep: #96522F;
+    --line: rgba(55,47,39,0.14);
+    --radius: 18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Cairo', sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'El Messiri', serif;
+    font-weight:700;
+    color:var(--green-deep);
+    line-height:1.25;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,238,228,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'El Messiri', serif;
+    font-weight:700;
+    font-size:1.35rem;
+    color:var(--green-deep);
+  }
+  .brand-mark{
+    width:38px; height:38px; border-radius:10px;
+    background:linear-gradient(135deg, var(--green) 55%, var(--rust) 55%);
+    flex-shrink:0;
+  }
+  .nav-links{
+    display:flex; align-items:center; gap:30px;
+    font-size:0.98rem; color:var(--ink-soft);
+  }
+  .nav-links a:hover{color:var(--green-deep);}
+  .nav-cta{
+    display:flex; gap:12px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 22px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.95rem;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--green-deep);
+    color:var(--cream);
+  }
+  .btn-primary:hover{background:var(--green); transform:translateY(-1px);}
+  .btn-outline{
+    border:1.5px solid var(--ink);
+    color:var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink); color:var(--cream);}
+  .btn-rust{ background:var(--rust); color:#fff; }
+  .btn-rust:hover{ background:var(--rust-deep); transform:translateY(-1px); }
+  .btn svg{width:18px; height:18px;}
+
+  @media (max-width:820px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 60px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow{
+    color:var(--rust-deep);
+    font-weight:600;
+    font-size:1rem;
+    margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4vw, 3.1rem);
+    margin-bottom:22px;
+  }
+  .hero p.lead{
+    color:var(--ink-soft);
+    font-size:1.12rem;
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
+  .hero-phone{
+    display:flex; align-items:center; gap:12px;
+    color:var(--ink-soft);
+    font-size:1rem;
+  }
+  .hero-phone strong{
+    color:var(--green-deep);
+    font-size:1.2rem;
+    letter-spacing:0.5px;
+    direction:ltr;
+    display:inline-block;
+  }
+
+  /* Room mockup */
+  .mockup{
+    position:relative;
+    border-radius:22px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 24px 48px -20px rgba(31,74,60,0.35);
+    border:1px solid var(--line);
+  }
+  .mockup svg{ width:100%; height:auto; display:block; }
+  .swatches{
+    display:flex; gap:10px; justify-content:center;
+    padding:18px;
+    background:var(--cream-deep);
+    border-top:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .swatch{
+    width:34px; height:34px;
+    border-radius:50%;
+    cursor:pointer;
+    border:2px solid #fff;
+    box-shadow:0 0 0 1.5px var(--line);
+    transition:transform .15s ease;
+  }
+  .swatch:hover{ transform:scale(1.12); }
+  .swatch.active{ box-shadow:0 0 0 2.5px var(--green-deep); }
+  .mockup-caption{
+    text-align:center;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    padding:0 18px 16px;
+  }
+
+  /* ---------- Section heading ---------- */
+  .section{ padding:78px 0; }
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+  .section-head h2{ font-size:clamp(1.7rem, 3vw, 2.3rem); margin-bottom:14px;}
+  .section-head p{ color:var(--ink-soft); font-size:1.05rem; }
+
+  .alt-bg{ background:var(--cream-deep); }
+
+  /* ---------- Services ---------- */
+  .services{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--line);
+    border-right:1px solid var(--line);
+  }
+  .service{
+    border-bottom:1px solid var(--line);
+    border-left:1px solid var(--line);
+    padding:36px 30px;
+    position:relative;
+  }
+  .service .num{
+    font-family:'El Messiri', serif;
+    font-size:0.95rem;
+    color:var(--rust-deep);
+    margin-bottom:18px;
+    display:block;
+  }
+  .service h3{ font-size:1.25rem; margin-bottom:12px; }
+  .service p{ color:var(--ink-soft); font-size:0.98rem; }
+
+  @media (max-width:820px){
+    .services{ grid-template-columns:1fr; }
+    .hero-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Process ---------- */
+  .process{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .step{
+    display:grid;
+    grid-template-columns:70px 1fr;
+    gap:22px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .step:last-child{ border-bottom:1px solid var(--line); }
+  .step .step-mark{
+    font-family:'El Messiri', serif;
+    font-size:1.4rem;
+    color:var(--green);
+  }
+  .step h3{ font-size:1.12rem; margin-bottom:6px; }
+  .step p{ color:var(--ink-soft); font-size:0.98rem; max-width:60ch; }
+
+  /* ---------- Contact ---------- */
+  .contact-panel{
+    background:var(--green-deep);
+    color:var(--cream);
+    border-radius:26px;
+    padding:56px 44px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  .contact-panel h2{ color:var(--cream); font-size:clamp(1.6rem, 3vw, 2.1rem); margin-bottom:16px;}
+  .contact-panel p{ color:#D8E3DC; font-size:1.02rem; max-width:44ch; margin-bottom:28px;}
+  .contact-panel .btn-primary{ background:var(--rust); }
+  .contact-panel .btn-primary:hover{ background:var(--rust-deep); }
+  .contact-panel .btn-outline{ border-color:var(--cream); color:var(--cream); }
+  .contact-panel .btn-outline:hover{ background:var(--cream); color:var(--green-deep); }
+  .contact-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .contact-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:18px;
+    padding:28px;
+  }
+  .contact-card .label{ color:#B9CBC1; font-size:0.9rem; margin-bottom:8px;}
+  .contact-card .value{
+    font-family:'El Messiri', serif;
+    font-size:1.5rem;
+    direction:ltr;
+    text-align:right;
+    color:#fff;
+    margin-bottom:22px;
+  }
+  .contact-card hr{ border:none; border-top:1px solid rgba(255,255,255,0.15); margin:20px 0;}
+
+  @media (max-width:820px){
+    .contact-panel{ grid-template-columns:1fr; padding:40px 26px;}
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:34px 0;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Floating WhatsApp ---------- */
+  .float-wa{
+    position:fixed;
+    bottom:24px;
+    left:24px;
+    z-index:60;
+    width:60px; height:60px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px -6px rgba(37,211,102,0.6);
+    transition:transform .18s ease;
+  }
+  .float-wa:hover{ transform:scale(1.08); }
+  .float-wa svg{ width:30px; height:30px; fill:#fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      بيت الدهانات
+    </div>
+    <nav class="nav-links">
+      <a href="#services">خدماتنا</a>
+      <a href="#mockup">قارن الألوان</a>
+      <a href="#process">كيف نعمل</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="tel:+966530557080">اتصال</a>
+      <a class="btn btn-primary" href="https://wa.me/966530557080?text=مرحباً، أرغب بالاستفسار عن خدمات الدهانات" target="_blank" rel="noopener">واتساب</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">دهانات داخلية وخارجية</div>
+      <h1>نلوّن جدرانك بدقة الخبير<br>ونساعدك تختار قبل ما تبدأ</h1>
+      <p class="lead">فريق دهانات متخصص في التشطيبات الداخلية والخارجية، مع استشارة ألوان مجانية قبل التنفيذ حتى تشوف النتيجة قبل ما نبدأ.</p>
+      <div class="hero-actions">
+        <a class="btn btn-rust" href="https://wa.me/966530557080?text=مرحباً، أرغب بحجز استشارة دهانات" target="_blank" rel="noopener">
+          احجز استشارة مجانية
+        </a>
+        <a class="btn btn-outline" href="#services">شاهد خدماتنا</a>
+      </div>
+      <div class="hero-phone">
+        للتواصل المباشر: <strong dir="ltr">0530 557 080</strong>
+      </div>
+    </div>
+
+    <div id="mockup" class="mockup">
+      <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="480" height="340" fill="#FAF7F0"/>
+        <!-- wall -->
+        <rect id="wallFill" x="0" y="0" width="480" height="250" fill="#1F4A3C" style="transition:fill .35s ease;"/>
+        <!-- floor -->
+        <rect x="0" y="250" width="480" height="90" fill="#DED2BC"/>
+        <rect x="0" y="250" width="480" height="6" fill="#C9BA9D"/>
+        <!-- window -->
+        <rect x="34" y="34" width="100" height="150" rx="4" fill="#FDF9EF" opacity="0.92"/>
+        <line x1="84" y1="34" x2="84" y2="184" stroke="#C9BA9D" stroke-width="3"/>
+        <line x1="34" y1="109" x2="134" y2="109" stroke="#C9BA9D" stroke-width="3"/>
+        <!-- side table -->
+        <rect x="360" y="230" width="70" height="8" fill="#F4EFE4"/>
+        <rect x="368" y="238" width="8" height="34" fill="#C9BA9D"/>
+        <rect x="416" y="238" width="8" height="34" fill="#C9BA9D"/>
+        <rect x="372" y="200" width="52" height="30" rx="3" fill="#F4EFE4" stroke="#D9CBB0" stroke-width="1.5"/>
+        <!-- chair -->
+        <path d="M240 200 q0 -34 34 -34 q34 0 34 34 v14 h-68 z" fill="#EDE6D6"/>
+        <rect x="242" y="214" width="64" height="10" fill="#EDE6D6"/>
+        <rect x="248" y="224" width="6" height="34" fill="#C9BA9D"/>
+        <rect x="292" y="224" width="6" height="34" fill="#C9BA9D"/>
+        <!-- plant -->
+        <rect x="150" y="260" width="34" height="26" rx="6" fill="#F4EFE4"/>
+        <path d="M167 260 q-4 -40 -22 -60" stroke="#3B6B4F" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M167 260 q6 -46 26 -66" stroke="#2C5A40" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M167 260 q0 -50 0 -74" stroke="#345F44" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="swatches" role="group" aria-label="اختر لون الحائط">
+        <span class="swatch active" style="background:#1F4A3C" data-color="#1F4A3C"></span>
+        <span class="swatch" style="background:#B3673E" data-color="#B3673E"></span>
+        <span class="swatch" style="background:#8C9A82" data-color="#8C9A82"></span>
+        <span class="swatch" style="background:#3B3B3B" data-color="#3B3B3B"></span>
+        <span class="swatch" style="background:#5E7A8C" data-color="#5E7A8C"></span>
+        <span class="swatch" style="background:#D9C6A5" data-color="#D9C6A5"></span>
+      </div>
+      <div class="mockup-caption">اضغط على أي لون لتشوف شكله على الحائط قبل ما تقرر</div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>خدماتنا</h2>
+      <p>من الاستشارة الأولى إلى التسليم النهائي، نغطي كل ما يخص دهان مساحتك.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <span class="num">01</span>
+        <h3>دهانات داخلية</h3>
+        <p>تشطيب دقيق للجدران والأسقف بخامات عالية الجودة تتحمل الاستخدام اليومي، مع معالجة الشقوق والعيوب قبل الدهان.</p>
+      </div>
+      <div class="service">
+        <span class="num">02</span>
+        <h3>دهانات خارجية</h3>
+        <p>حماية الواجهات من العوامل الجوية بدهانات مقاومة للحرارة والرطوبة، تحافظ على لونها لسنوات.</p>
+      </div>
+      <div class="service">
+        <span class="num">03</span>
+        <h3>استشارة ألوان مجانية</h3>
+        <p>نساعدك تختار الألوان المناسبة لطبيعة الإضاءة ومساحة الغرفة قبل ما تلتزم بأي لون.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>كيف نعمل</h2>
+      <p>خطوات واضحة من أول تواصل إلى تسليم العمل.</p>
+    </div>
+    <div class="process">
+      <div class="step">
+        <div class="step-mark">١</div>
+        <div>
+          <h3>تواصل واستشارة</h3>
+          <p>تراسلنا عبر واتساب أو تتصل، ونحدد معك المساحة والألوان التقريبية اللي تفكر فيها.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-mark">٢</div>
+        <div>
+          <h3>معاينة ميدانية</h3>
+          <p>نزور الموقع لتحديد حالة الجدران والمساحة الفعلية، ونرشح لك الألوان والخامة المناسبة.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-mark">٣</div>
+        <div>
+          <h3>تسعير واضح</h3>
+          <p>عرض سعر مفصل قبل البدء، بدون تكاليف مخفية أو مفاجآت لاحقة.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-mark">٤</div>
+        <div>
+          <h3>تنفيذ وتسليم</h3>
+          <p>تنفيذ نظيف ومنظم، مع مراجعة نهائية معك قبل التسليم للتأكد من رضاك التام.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <h2>جاهزين نلوّن مساحتك؟</h2>
+        <p>تواصل معنا الآن عبر واتساب أو اتصال مباشر، وخذ استشارة الألوان المجانية.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://wa.me/966530557080?text=مرحباً، أرغب بالاستفسار عن خدمات الدهانات" target="_blank" rel="noopener">
+            راسلنا على واتساب
+          </a>
+          <a class="btn btn-outline" href="tel:+966530557080">اتصل الآن</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="label">للاتصال المباشر</div>
+        <div class="value" dir="ltr">0530 557 080</div>
+        <hr>
+        <div class="label">أوقات الاستجابة</div>
+        <div class="value" style="font-size:1.05rem; direction:rtl; text-align:right;">يوميًا من ٩ صباحًا حتى ٩ مساءً</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div>بيت الدهانات — دهانات داخلية وخارجية</div>
+  <div dir="ltr">0530 557 080</div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/966530557080?text=مرحباً، أرغب بالاستفسار عن خدمات الدهانات" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.02 3C9.4 3 4.02 8.38 4.02 15c0 2.34.65 4.53 1.78 6.4L4 29l7.78-1.75A11.9 11.9 0 0 0 16.02 27C22.64 27 28 21.62 28 15S22.64 3 16.02 3zm0 21.6c-1.98 0-3.83-.55-5.4-1.5l-.39-.23-4.61 1.04 1.06-4.5-.25-.4a9.55 9.55 0 0 1-1.51-5.01c0-5.3 4.3-9.6 9.6-9.6 5.3 0 9.6 4.3 9.6 9.6 0 5.3-4.3 9.6-9.6 9.6zm5.28-7.19c-.29-.15-1.72-.85-1.98-.95-.27-.1-.46-.15-.66.15-.2.29-.76.95-.93 1.14-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.71-1.6-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.6-.91-2.19-.24-.58-.48-.5-.66-.51h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.2 3.02.15.2 2.06 3.14 4.99 4.4.7.3 1.24.48 1.66.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.2-.55-.34z"/></svg>
+</a>
+
+<script>
+  const swatches = document.querySelectorAll('.swatch');
+  const wall = document.getElementById('wallFill');
+  swatches.forEach(sw => {
+    sw.addEventListener('click', () => {
+      swatches.forEach(s => s.classList.remove('active'));
+      sw.classList.add('active');
+      wall.setAttribute('fill', sw.dataset.color);
+    });
+  });
+</script>
+
+</body>
+</html>
